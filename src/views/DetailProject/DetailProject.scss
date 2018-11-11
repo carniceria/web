@@ -33,6 +33,10 @@
         width: 100%;
     }
 
+    &__first-media-image-container {
+        position: relative;
+    }
+
     &__first-media-video {
         margin-bottom: 40px;
     }
@@ -89,10 +93,24 @@
         .container-image {
             flex-basis: calc((100% / 4) - 30px);
             margin-bottom: 20px;
+            position: relative;
 
             img {
                 width: 100%;
             }
+        }
+    }
+
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &.-top {
+            top: 50px;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 }

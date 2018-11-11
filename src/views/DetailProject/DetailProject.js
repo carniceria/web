@@ -1,6 +1,8 @@
 import { Header } from '../../components/Header/Header';
 import { Footer } from '../../components/Footer/Footer';
+import { Loader } from '../../components/Loader/Loader';
 import React, { Component, Fragment } from 'react';
+import Img from 'react-image'
 import * as contentful from 'contentful';
 import Markdown from 'react-markdown';
 import ReactPlayer from 'react-player'
@@ -53,12 +55,18 @@ class DetailProject extends Component {
         let galleryImages
 
         if (project.length > 0) {
-
             if (project[0].fields.galleryImages) {
                 galleryImages = project[0].fields.galleryImages.map((image, index) => {
                     return (
                         <div className="container-image">
-                            <img key={index.toString()} src={image.fields.file.url} alt={image.fields.file.title} />
+                            <Img
+                                key={index.toString()} src={image.fields.file.url} alt={image.fields.file.title}
+                                loader={
+                                    <div className="loader">
+                                        <Loader />
+                                    </div>
+                                }
+                            />
                         </div>
                     )
                 });
@@ -118,11 +126,16 @@ class DetailProject extends Component {
                                     url={project[0].fields.soundCloud}
                                 />
                             </div>}
-                            <div>
-                                <img
+                            <div className="l-detail-project__first-media-image-container">
+                                <Img
                                     className="l-detail-project__first-media-image"
                                     src={project[0].fields.picture.fields.file.url}
                                     alt={project[0].fields.title}
+                                    loader={
+                                        <div className="loader -top">
+                                            <Loader />
+                                        </div>
+                                    }
                                 />
                             </div>
                         </div>
