@@ -92,6 +92,7 @@
 
         .container-image {
             flex-basis: calc((100% / 4) - 30px);
+            min-height: 100px;
             margin-bottom: 20px;
             position: relative;
 

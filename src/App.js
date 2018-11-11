@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Home } from './views/Home/Home';
 import { AboutUs } from './views/AboutUs/AboutUs';
 import { DetailProject } from './views/DetailProject/DetailProject';
+import { NotFound } from './views/NotFound/NotFound';
 import sal from 'sal.js';
 
 require('dotenv').config()
@@ -18,6 +19,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/about-us/" component={AboutUs} />
           <Route exact path="/project/:projectId/" component={DetailProject} />
+          <Route component={NotFound} />
       </div>
     </Router>
     );

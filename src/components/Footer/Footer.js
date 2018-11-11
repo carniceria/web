@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import facebookLogo from './assets/facebook.svg';
 import instagramLogo from './assets/instagram-logo.svg';
 

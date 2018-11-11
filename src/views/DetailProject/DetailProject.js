@@ -59,9 +59,10 @@ class DetailProject extends Component {
             if (project[0].fields.galleryImages) {
                 galleryImages = project[0].fields.galleryImages.map((image, index) => {
                     return (
-                        <div className="container-image">
+                        <div className="container-image" key={index.toString()}>
                             <Img
-                                key={index.toString()} src={image.fields.file.url} alt={image.fields.file.title}
+                                src={image.fields.file.url}
+                                alt={image.fields.file.title}
                                 loader={
                                     <div className="loader">
                                         <Loader />

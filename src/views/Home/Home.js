@@ -126,11 +126,20 @@ class Home extends Component {
         return gridContent;
     }
 
+    buildMetaTags = () => {
+        return (
+            <MetaTags>
+                <title>|carnicería</title>
+            </MetaTags>
+        )
+    }
+
     render() {
         const {showDetailBox} = this.state;
 
         return (
             <Fragment>
+                {this.buildMetaTags()}
                 <BottomScrollListener debounce={0} offset={100} onBottom={() => this.updateContent()} />
                 <Header />
                 <div className="l-home">
