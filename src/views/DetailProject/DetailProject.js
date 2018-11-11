@@ -69,10 +69,14 @@ class DetailProject extends Component {
     }
 
     getImageArrays = (item) => {
-        const itemArray = item[0].fields.galleryImages.map((image, index) => {
-            return(image.fields.file.url);
-        });
-        return itemArray;
+        if(item[0].fields.galleryImages) {
+            const itemArray = item[0].fields.galleryImages.map((image, index) => {
+                return(image.fields.file.url);
+            });
+            return itemArray;
+        } else {
+            return [];
+        }
     }
 
     fetchPosts = () => client.getEntries()
