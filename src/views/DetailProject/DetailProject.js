@@ -6,6 +6,7 @@ import Img from 'react-image'
 import * as contentful from 'contentful';
 import Markdown from 'react-markdown';
 import ReactPlayer from 'react-player'
+import MetaTags from 'react-meta-tags';
 
 const stripchar = require('stripchar').StripChar;
 // import {OBJModel} from 'react-3d-viewer';
@@ -150,9 +151,20 @@ class DetailProject extends Component {
         }
     }
 
+    buildMetaTags = () => {
+        if(this.state.project.length > 0) {
+            return (
+                <MetaTags>
+                    <title>|carnicería | {this.state.project[0].fields.title}</title>
+                </MetaTags>
+            )
+        }
+    }
+
     render() {
         return (
             <Fragment>
+                {this.buildMetaTags()}
                 <Header />
                 <div className="l-detail-project">
                     <div className="l-detail-project__grid">
