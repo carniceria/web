@@ -1,0 +1,78 @@
+@import '../../styles/index';
+
+.c-footer {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    &__box-filter-option {
+        opacity: 0;
+        color: $white;
+        transition: .1s linear;
+
+        &.-show {
+            opacity: 1;
+        }
+    }
+
+    &__box {
+        position: relative;
+        display: flex;
+        background-color: rgba($white, .2);
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: calc((100% / 4) - 20px);
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+
+        &.-filters {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            width: calc((100% / 2 + 20px));
+            transition: .1s linear;
+        }
+
+        &.-pink {
+            background-color: $neon-one-color;
+        }
+    }
+
+    &__box-modal {
+        position: absolute;
+        width: calc(100% - 30px);
+        bottom: 75px;
+        left: -10px;
+        padding: 10px;
+        box-shadow: 4px 4px 1px 4px rgba($black, .5);
+        z-index: 2;
+        background-color: rgba($white, 1);
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    &__box-modal-contact-address {
+        padding-bottom: 10px;
+        border-bottom: 1px solid $black;
+
+        p {
+            margin-bottom: 10px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__box-modal-contact-email {
+        margin-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid $black;
+    }
+}

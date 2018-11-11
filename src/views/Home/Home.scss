@@ -1,0 +1,134 @@
+@import '../../styles/index';
+
+.l-home {
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 40px;
+        margin: 100px 0;
+    }
+
+    &__grid-box {
+        width: 100%;
+        height: 0;
+        position: relative;
+        padding-top: 56.25%;
+    }
+
+    &__grid-box-aspect-ratio {
+        flex-basis: calc((100% / 1) - 10px);
+        float: left;
+        margin-bottom: 50px;
+        cursor: pointer;
+
+        @media(min-width: 768px) {
+            flex-basis: calc((100% / 2) - 10px);
+        }
+
+
+        @media(min-width: 1024px) {
+            flex-basis: calc((100% / 3) - 10px);
+        }
+
+        &:hover {
+            position: relative;
+            z-index: 4;
+
+            // .l-home__grid-box-title {
+            //     position: absolute;
+            //     color: $white;
+            //     font-size: 42px;
+            //     transition: .2s font-size linear;
+            //     font-weight: bold;
+
+            //     p {
+            //         font-size: 20px;
+            //         transition: .2s font-size linear;
+            //     }
+
+            //     &.-top {
+            //         top: -150px;
+            //     }
+            // }
+        }
+    }
+
+    &__grid-back-image {
+        position: absolute;
+        background-size: cover;
+        background-position: 50%, 50%;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+    }
+
+    &__grid-box-title {
+        display: block;
+        margin: 5px 0;
+        font-size: 18px;
+        position: absolute;
+
+        &:hover {
+            color: $neon-one-color;
+        }
+
+        &.-top {
+            top: -150px;
+        }
+
+        p {
+            color: $white;
+            font-size: 0;
+        }
+
+        &.-big {
+            transition: .1s linear;
+            color: $white;
+            font-size: 42px;
+
+            p {
+                font-size: 20px;
+                transition: .2s font-size linear;
+            }
+        }
+    }
+
+    &__back-detail {
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: $neon-one-color;
+        z-index: 3;
+    }
+}
+
+// Animations
+
+// Animation triangle position bottom
+.back-detail-animation-enter {
+    opacity: .01;
+}
+
+.back-detail-animation-enter-active {
+    transition: .1s linear;
+    opacity: 1;
+}
+
+.back-detail-animation-enter-done {
+    opacity: 1;
+}
+
+.back-detail-animation-exit {
+    transition: .1s linear;
+    opacity: 0;
+}
+
+.back-detail-animation-exit-active {
+    transition: opacity .1s linear;
+    opacity: .01;
+}
