@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import facebookLogo from './assets/facebook.svg';
+import instagramLogo from './assets/instagram-logo.svg';
 
 require('./Footer.scss');
 
@@ -76,7 +78,7 @@ class Footer extends Component {
                     <span to="/">proyectos</span>
                 </div>
                 <div className="c-footer__box">galaxia</div>
-                <div className="c-footer__box" onClick={() => this.openContactModal()}>
+                <div className="c-footer__box">
                     {openContact &&
                         <div className="c-footer__box-modal">
                             <div className="c-footer__box-modal-contact-address">
@@ -87,9 +89,17 @@ class Footer extends Component {
                             <div className="c-footer__box-modal-contact-email">
                                 <p>espaciocarniceria@gmail.com</p>
                             </div>
+                            <div className="c-footer__box-modal-social">
+                                <a href="https://www.facebook.com/espaciocarniceria/" rel="noopener noreferrer" target="_blank">
+                                    <img src={facebookLogo} alt="facebook logo"/>
+                                </a>
+                                <a href="https://www.instagram.com/espaciocarniceria/" rel="noopener noreferrer" target="_blank">
+                                    <img src={instagramLogo} alt="instagram logo"/>
+                                </a>
+                            </div>
                         </div>
                     }
-                    <span>contacto</span>
+                    <span className="c-footer__open-contact" onClick={() => this.openContactModal()}>contacto</span>
                 </div>
             </div>
         );

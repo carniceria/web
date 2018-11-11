@@ -48,9 +48,9 @@
         position: absolute;
         width: calc(100% - 30px);
         bottom: 75px;
-        left: -10px;
-        padding: 10px;
-        box-shadow: 4px 4px 1px 4px rgba($black, .5);
+        left: -30px;
+        padding: 20px;
+        box-shadow: 4px 4px 4px 4px rgba($black, .5);
         z-index: 2;
         background-color: rgba($white, 1);
         font-size: 16px;
@@ -74,5 +74,30 @@
         margin-top: 15px;
         padding-bottom: 15px;
         border-bottom: 1px solid $black;
+    }
+
+    &__open-contact {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__box-modal-social {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+
+        a {
+            margin-right: 15px;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            img {
+                width: 22px;
+            }
+        }
     }
 }

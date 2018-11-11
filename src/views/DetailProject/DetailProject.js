@@ -4,7 +4,6 @@ import React, { Component, Fragment } from 'react';
 import * as contentful from 'contentful';
 import Markdown from 'react-markdown';
 import ReactPlayer from 'react-player'
-import MetaTags from 'react-meta-tags';
 
 const stripchar = require('stripchar').StripChar;
 // import {OBJModel} from 'react-3d-viewer';
@@ -138,23 +137,9 @@ class DetailProject extends Component {
         }
     }
 
-    buildMetaTags = () => {
-        const { project } = this.state;
-
-        if (project.length > 0) {
-            const urlShort = stripchar.RSExceptUnsAlpNum(project[0].fields.title.toLowerCase().replace(/\s/g,''), '_')
-            return (
-                <MetaTags>
-                    <title>|carnicería | {project[0].fields.title}</title>
-                </MetaTags>
-            )
-        }
-    }
-
     render() {
         return (
             <Fragment>
-                {this.buildMetaTags()}
                 <Header />
                 <div className="l-detail-project">
                     <div className="l-detail-project__grid">
