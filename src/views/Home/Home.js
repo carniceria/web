@@ -7,14 +7,11 @@ import { Header } from '../../components/Header/Header';
 import { Footer } from '../../components/Footer/Footer';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import MetaTags from 'react-meta-tags';
-// import * as sal from 'sal.js'
-
 const stripchar = require('stripchar').StripChar;
 
 require('./Home.scss');
-// require('../../../node_modules/sal.js/dist/sal.css');
 
-const INFINITE = false;
+const INFINITE = true;
 
 const client = contentful.createClient({
     space: process.env.REACT_APP_SPACE_CONTENTFUL,
