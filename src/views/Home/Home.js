@@ -131,6 +131,16 @@ class Home extends Component {
         )
     }
 
+    changeCategory = (value) => {
+        const {postsFirst, posts} = this.state;
+        if(value) {
+            this.setState({
+                postsFirst: this.shuffleArray(postsFirst.filter(item => item.sys.contentType.sys.id === 'project' && item.fields.categoria === value)),
+                posts: this.shuffleArray(posts.filter(item => item.sys.contentType.sys.id === 'project' && item.fields.categoria === value))
+            })
+        }
+    }
+
     render() {
         const {showDetailBox} = this.state;
 
@@ -152,7 +162,7 @@ class Home extends Component {
                         {this.buildGridProjects()}
                     </div>
                 </div>
-                <Footer />
+                <Footer changeCategoryHome={this.changeCategory} />
             </Fragment>
         );
     }

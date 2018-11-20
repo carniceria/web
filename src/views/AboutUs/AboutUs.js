@@ -1,12 +1,13 @@
+import { Header } from '../../components/Header/Header';
+import { Footer } from '../../components/Footer/Footer';
+
 import React, { Component, Fragment } from 'react';
 import * as contentful from 'contentful';
 import { CSSTransition } from 'react-transition-group';
 import MetaTags from 'react-meta-tags';
+import { Link } from "react-router-dom";
+const stripchar = require('stripchar').StripChar;
 // import {OBJModel} from 'react-3d-viewer';
-
-
-import { Header } from '../../components/Header/Header';
-import { Footer } from '../../components/Footer/Footer';
 
 // import antonOne from './obj/st.obj';
 
@@ -50,8 +51,9 @@ class AboutUs extends Component {
         const { people } = this.state;
         const gridContent = people.map(entry => {
             return(
-                <div
+                <Link
                     // data-sal="slide-up"
+                    to={`/people/${stripchar.RSExceptUnsAlpNum(entry.fields.name.toLowerCase().replace(/\s/g,''), '_')}/`}
                     className="l-about-us__grid-box-aspect-ratio"
                     onMouseOver={() => this.showInfoBoxGrid(true)}
                     onMouseLeave={() => this.showInfoBoxGrid(false)}
@@ -60,12 +62,11 @@ class AboutUs extends Component {
                         <div className="l-about-us__grid-back-image" style={{backgroundImage: `url(${entry.fields.picture.fields.file.url})`}}>
                             {}
                         </div>
+                        <div className="l-about-us__grid-box-name">
+                            <p>{entry.fields.name}</p>
+                        </div>
                     </div>
-                    <span className="l-about-us__grid-box-title">
-                        <p>{entry.fields.name}</p>
-                        <p>loremipsum loremipsum loremipsum</p>
-                    </span>
-                </div>
+                </Link>
 
             )
         })

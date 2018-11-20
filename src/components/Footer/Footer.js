@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import facebookLogo from './assets/facebook.svg';
 import instagramLogo from './assets/instagram-logo.svg';
+
 
 require('./Footer.scss');
 
@@ -12,6 +14,18 @@ class Footer extends Component {
             openContact: false,
             showFilters: false,
             firstOpen: false
+        }
+    }
+
+    componentDidMount() {
+        window.addEventListener('onmouseover', this.handleOnMouseOutside);
+    }
+
+    handleOnMouseOutside = (event) => {
+        if(this.footer) {
+            if (!this.footer.contains(event.target) && this.footer) {
+                this.showFilters(false);
+            }
         }
     }
 
@@ -42,11 +56,16 @@ class Footer extends Component {
         }
     }
 
+    changeCategory = (value) => {
+        const { changeCategoryHome } = this.props
+        changeCategoryHome(value);
+    }
+
     render() {
         const { openContact, showFilters } = this.state;
 
         return (
-            <div className="c-footer">
+            <div className="c-footer" ref={(el) => this.footer = el}>
                 <div
                     className={`c-footer__box -filters ${showFilters ? '-pink': ''}`}
                     onMouseOver={() => showFilters ? this.showFilters(true) : null}
@@ -54,19 +73,24 @@ class Footer extends Component {
                 >
                     <div
                         className={`c-footer__box-filter-option ${showFilters ? '-show' : ''}`}
+                        onClick={() => this.changeCategory('Arquitectura')}
+                    >arquitectura</div>
+                    <div
+                        className={`c-footer__box-filter-option ${showFilters ? '-show' : ''}`}
+                        onClick={() => this.changeCategory('Arte Digital')}
                     >arte digital</div>
                     <div
                         className={`c-footer__box-filter-option ${showFilters ? '-show' : ''}`}
-                    >comunicación</div>
-                    <div
-                        className={`c-footer__box-filter-option ${showFilters ? '-show' : ''}`}
-                    >música</div>
-                    <div
-                        className={`c-footer__box-filter-option ${showFilters ? '-show' : ''}`}
+                        onClick={() => this.changeCategory('Cine')}
                     >cine</div>
                     <div
                         className={`c-footer__box-filter-option ${showFilters ? '-show' : ''}`}
-                    >arquitectura</div>
+                        onClick={() => this.changeCategory('Comunicación')}
+                    >comunicación</div>
+                    <div
+                        className={`c-footer__box-filter-option ${showFilters ? '-show' : ''}`}
+                        onClick={() => this.changeCategory('Música')}
+                    >música</div>
                 </div>
                 <div
                     to="/"
@@ -76,7 +100,9 @@ class Footer extends Component {
                 >
                     <span to="/">proyectos</span>
                 </div>
-                <div className="c-footer__box">galaxia</div>
+                <div className="c-footer__box">
+                    <Link to="/galaxy/">galaxia</Link>
+                </div>
                 <div className="c-footer__box">
                     {openContact &&
                         <div className="c-footer__box-modal">

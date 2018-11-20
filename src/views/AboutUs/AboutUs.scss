@@ -17,12 +17,12 @@
         height: 0;
         position: relative;
         padding-top: 56.25%;
+        margin-bottom: 30px;
     }
 
     &__grid-box-aspect-ratio {
         flex-basis: calc((100% / 1) - 10px);
         float: left;
-        margin-bottom: 15px;
         cursor: pointer;
         position: relative;
         z-index: 2;
@@ -46,11 +46,17 @@
         display: block;
         margin: 5px 0;
         font-size: 14px;
+        color: $white;
 
         p {
             color: $white;
             font-size: 0;
         }
+    }
+
+    &__grid-box-name {
+        color: $white;
+        font-size: 18px;
     }
 
     &__grid-back-image {
